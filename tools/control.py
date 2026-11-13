@@ -5,11 +5,13 @@ from pathlib import Path
 import time
 import uuid
 import sys
+from session_lock import exclusive
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTROL = ROOT / "lab/kr1-test/control"
 
 
+@exclusive
 def request(op, **kwargs):
     rid = uuid.uuid4().hex
     req = {"id": rid, "op": op, **kwargs}
@@ -38,6 +40,7 @@ def request(op, **kwargs):
     raise TimeoutError("Game did not acknowledge command; inspect runtime.log and the game window")
 
 
+@exclusive
 def advance(count):
     if type(count) is not int or not 0 <= count <= 36000:
         raise ValueError("Advance count must be an integer between 0 and 36000")

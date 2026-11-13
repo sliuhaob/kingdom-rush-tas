@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-13",
+  "method": "fresh-process-replay",
+  "runtime_sha256": "ef5bb31a4e2428521f06202746d11986ab30bea480390da623e1fc81be6b351c",
+  "game_sha256": "ebb4a3a9fd4fa6a30fb98e2b39fb32f0eff8630d47a3951b658339c26ce91e7b",
+  "source_movie": "examples/southport-normal.movie.json",
+  "source_movie_sha256": "de21afa467f94f61a8963e9c69f1b5a3b680d9831309d7316f7cedefcfa081ac",
+  "battle_bookmark_frame": 3741,
+  "held_key_bookmark_frame": 3742,
+  "continuation_end_frame": 26141,
+  "branch_end_frame": 5103,
+  "branch_event_count": 32,
+  "fresh_processes": 5,
+  "strict_passed": true,
+  "checks": [
+    {
+      "name": "bookmark_verified",
+      "match": true,
+      "differences": []
+    },
+    {
+      "name": "bookmark_state",
+      "match": true,
+      "differences": []
+    },
+    {
+      "name": "continued_victory",
+      "match": true,
+      "differences": []
+    },
+    {
+      "name": "back_state",
+      "match": true,
+      "differences": []
+    },
+    {
+      "name": "branch_prefix",
+      "match": true,
+      "differences": []
+    },
+    {
+      "name": "branch_end",
+      "match": true,
+      "differences": []
+    },
+    {
+      "name": "held_key",
+      "match": true,
+      "differences": []
+    },
+    {
+      "name": "branch_input_count",
+      "match": true,
+      "differences": []
+    },
+    {
+      "name": "held_bookmark_verified",
+      "match": true,
+      "differences": []
+    },
+    {
+      "name": "held_bookmark_state",
+      "match": true,
+      "differences": []
+    },
+    {
+      "name": "edited_continuation",
+      "match": true,
+      "differences": []
+    },
+    {
+      "name": "branch_replay_held",
+      "match": true,
+      "differences": []
+    },
+    {
+      "name": "branch_replay_final",
+      "match": true,
+      "differences": []
+    },
+    {
+      "name": "branch_replay_done",
+      "match": true,
+      "differences": []
+    }
+  ],
+  "concurrent_controller_rejected": true,
+  "scope": "One Southport input sample. Bookmark load and resumed victory, backward seek and takeover, future input truncation, held W key and mouse coordinates, edited continuation and independent branch replay. Not instantaneous memory savestates or all hidden state."
+}

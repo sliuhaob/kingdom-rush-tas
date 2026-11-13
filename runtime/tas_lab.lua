@@ -9,6 +9,41 @@ local native = {}
 local rng_count,rng_hash=0,0
 local unpack = unpack or table.unpack
 
+-- HUMP stores timers as table keys. Its native update walks pairs(functions)
+-- while callbacks can add timers: a hash-table resize can skip/revisit handles.
+-- Keep the original update, arithmetic and callbacks, but enumerate a stable
+-- registration-order snapshot. Timers created inside update wait for the next.
+local function deterministic_timers(timer)
+  local proto=getmetatable(timer.new())
+  local native_pairs=pairs
+  local sets=setmetatable({}, {__mode='k'})
+  local ids=setmetatable({}, {__mode='k'})
+  local next_id=0
+  for _,name in ipairs({'during','every'}) do
+    local original=proto[name]
+    proto[name]=function(self,...)
+      local handle=original(self,...)
+      next_id=next_id+1; ids[handle]=next_id; sets[self.functions]=true
+      return handle
+    end
+  end
+  pairs=function(t)
+    if not sets[t] then return native_pairs(t) end
+    local handles={}
+    for h in native_pairs(t) do
+      assert(ids[h], 'unregistered timer handle')
+      handles[#handles+1]=h
+    end
+    table.sort(handles,function(a,b) return ids[a]<ids[b] end)
+    local index=0
+    return function()
+      repeat index=index+1 until not handles[index] or t[handles[index]]
+      local h=handles[index]
+      if h then return h,t[h] end
+    end,t,nil
+  end
+end
+
 local function write(path, data)
   local f=assert(io.open(path,'wb')); f:write(data); f:close()
 end
@@ -44,6 +79,8 @@ local function snapshot()
     love_version=love._version, game_present=g~=nil, store_present=s~=nil}
   result.width=love.graphics.getWidth(); result.height=love.graphics.getHeight()
   result.pending=pending; result.replay_done=replay_done
+  result.queued_inputs=#events
+  result.input_state={keys=scalar(keys,2,{}),buttons=scalar(buttons,2,{}),x=mx,y=my}
   result.scene=rawget(_G,'director') and director.last_item_name
   result.math_rng_count=rng_count; result.math_rng_hash=rng_hash
   if s then
@@ -79,16 +116,35 @@ local function command()
   local ok,result=pcall(function()
     if c.op=='snapshot' then return snapshot()
     elseif c.op=='pause' then paused=true; return snapshot()
-    elseif c.op=='resume' then paused=false; return {ok=true}
+    elseif c.op=='resume' then
+      assert(not replay_done,'replay ended; take over before extending the timeline')
+      paused=false; return {ok=true}
     elseif c.op=='step' then
-      paused=true; pending=math.max(1,math.min(36000,tonumber(c.count) or 1)); return {ok=true,steps=pending}
+      local count=tonumber(c.count) or 1
+      assert(count>=1 and count<=36000 and count==math.floor(count),'invalid step count')
+      assert(pending==0,'another step batch is pending')
+      assert(not replay or frame+count<=replay.end_frame,'step exceeds replay ending')
+      paused=true; pending=count; return {ok=true,steps=pending}
     elseif c.op=='input' then
       assert(native[c.name] or c.name=='mousemoved', 'unsupported input')
       assert(not replay,'live input disabled during replay')
       events[#events+1]={name=c.name,args=c.args}; return {ok=true}
     elseif c.op=='movie' then
       return {format='kr-tas-v1',game_sha256=cfg.game_sha256,seed=cfg.seed,dt=cfg.dt,
-              end_frame=frame,events=movie,offline=true,clock_epoch=1700000000}
+              runtime_sha256=cfg.runtime_sha256,seed_boundary='game.init',initial_profile='fresh',
+              end_frame=replay and replay.end_frame or math.max(1,frame),
+              events=replay and replay.events or movie,offline=true,clock_epoch=1700000000}
+    elseif c.op=='takeover' then
+      assert(paused and pending==0,'pause and finish steps before takeover')
+      assert(#events==0,'execute queued input before takeover')
+      if replay then
+        movie={}
+        for _,e in ipairs(replay.events) do
+          if e.frame<frame then movie[#movie+1]=e end
+        end
+      end
+      replay=nil; replay_done=false; recording=true
+      return snapshot()
     elseif c.op=='inspect' then
       local value=_G
       for _,key in ipairs(c.path or {}) do value=value and value[key] end
@@ -138,9 +194,14 @@ function M.before()
     note('replaying '..movie_path)
   end
   local original_require=require
+  local timer_hooked=false
   local initialized=false
   require=function(name)
     local module=original_require(name)
+    if name=='hump.timer' and not timer_hooked then
+      timer_hooked=true
+      deterministic_timers(module)
+    end
     if name=='game' and type(module)=='table' and not initialized then
       initialized=true
       local init=module.init

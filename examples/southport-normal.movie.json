@@ -1852,7 +1852,7 @@
   "format": "kr-tas-v1",
   "dt": 0.016666666666667,
   "game_sha256": "ebb4a3a9fd4fa6a30fb98e2b39fb32f0eff8630d47a3951b658339c26ce91e7b",
-  "runtime_sha256": "05a554cc2478ae9bd61cd3dace47ade511410bffb113c9aaa6d878716c356c97",
+  "runtime_sha256": "ef5bb31a4e2428521f06202746d11986ab30bea480390da623e1fc81be6b351c",
   "seed_boundary": "game.init",
   "initial_profile": "fresh",
   "description": "Southport normal campaign completion probe. Native mouse/keyboard inputs, tutorial dialogs, tower purchases and reinforcements. Includes a long tutorial pause; not optimized for speed.",

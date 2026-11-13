@@ -2,7 +2,7 @@
 
 Experimental frame stepping and input replay for the original **Kingdom Rush, Windows Steam edition**. Requires your own game installation; no game binaries or assets are included.
 
-初代《王国保卫战》Windows Steam 版的实验性 TAS 工具：暂停、逐帧推进、键鼠输入录制和回放，以及重复回放状态对比。目前已复现首关通关，但完整样本在三次严格检查中有一次出现结算边界的 1 tick 差异，尚不能标记为整关同步通过。当前没有真正的存档／回档。
+初代《王国保卫战》Windows Steam 版的实验性 TAS 工具：暂停、逐帧推进、键鼠输入录制和回放、重复回放状态对比，以及**重演式回档、书签和输入分支**。回档从全新进程重放到指定帧，不是即时内存存档。整关同步的实测范围见 [验证记录](docs/validation.md)。
 
 ## 已验证的环境
 
@@ -65,8 +65,9 @@ python tools/control.py quit
 | `pause` / `resume` | 暂停 / 连续运行；连续运行不保证墙钟实时速度 |
 | `advance --count N` | 等待精确推进 N 帧，需要先暂停且无待执行步骤 |
 | `snapshot --output lab/state.json` | 导出当前可观测状态 |
-| `movie --output lab/my.movie.json` | 导出本次录制的输入；应在退出前保存 |
+| `movie --output lab/my.movie.json` | 导出输入时间线，回放模式下也保留未来输入；退出前保存 |
 | `input --args JSON` | 给原生输入回调排队，JSON 包含 `name` 和 `args` |
+| `takeover` | 在暂停处接管回放并删除未来输入；通常使用下面带自动历史备份的 `rewind --edit` |
 | `quit` | 退出实验游戏 |
 
 需要精确按键时，可以使用 Python 控制接口，避免不同 PowerShell 版本对 JSON 引号的处理差异：
@@ -82,7 +83,50 @@ request("input", name="keyreleased", args=["w", "w"])
 advance(1)
 ```
 
-本机录制样本中的物理 W 键只产生了 `textinput`，不能据此认定游戏收到了 `keypressed`；首波实际通过鼠标按钮启动。持续按键、鼠标轮询和其他技能输入仍需继续验证。
+早期本机录制中的物理 W 键只产生了 `textinput`，首波实际通过鼠标按钮启动。当前回档验收另行通过控制接口验证了 W 按下／保持／释放和鼠标坐标恢复；这不等于验证了所有键位或技能效果。
+
+## 回档、书签与分支
+
+先暂停并等待所有推进结束。尚未执行的键鼠输入需要先推进执行；工具会拒绝静默丢弃它们。
+
+```powershell
+python tools/launch.py --replay examples/southport-normal.movie.json
+python tools/control.py advance --count 3741
+python tools/rewind.py save battle
+python tools/control.py advance --count 1000
+python tools/rewind.py load battle
+```
+
+`load` 会关闭当前实验进程，使用新的隔离存档重放到书签帧，然后核对实体、战斗状态、随机数摘要和键鼠按住状态。核对失败会返回错误、保留诊断报告，并停在暂停的回放模式。原输入和状态自动备份到 `lab/kr1-test/history/`；书签位于 `lab/kr1-test/bookmarks/`，同名书签不会被覆盖。
+
+```powershell
+# 后退 120 个外层更新帧，保留原来的未来输入
+python tools/rewind.py back 120
+
+# 回到指定帧，并从这里重新录制后续输入
+python tools/rewind.py seek 3741 --edit
+
+# 或从书签接管输入
+python tools/rewind.py load battle --edit
+```
+
+默认保持回放模式，可继续 `advance`。加 `--edit` 后，旧时间线先归档，再删除目标帧及其之后的输入并开始录制；之前的输入和当前按住的键鼠状态保留。第 F 帧是已经完成 F 次更新、尚未执行编号为 F 的输入的位置。
+
+任意 `seek`/`back` 目标通常没有旧状态可对比，因此报告中 `verified` 为 `null`，表示已重放到目标帧；书签 `load` 才具有保存时的状态用于核对。回档耗时随目标帧增长，启动画面和前段输入会重新出现，不能瞬间跳转。当前仅支持从全新实验存档开始的时间线。
+
+录像必须包含匹配的运行器哈希；旧版录像和书签不能跨运行器版本直接载入。仓库附带的样本已更新版本条件并重新验证。
+
+程序化接口也可直接调用 `rewind.save(name)`、`rewind.load(name, edit=True)` 和 `rewind.seek(frame, edit=True)`。启动器会拒绝重复启动受管理的实验窗口，控制器使用进程锁避免并发覆盖命令文件。
+
+需要提前停止长批次推进或回档时，先在运行命令的终端按 `Ctrl+C`，再执行 `python tools/control.py quit`。前一步停止控制器并释放锁，后一步退出实验游戏；单独结束控制器不保证游戏中的待执行步骤立即取消。
+
+实机回档验收（会启动和关闭实验游戏，需使用完整首关样本）：
+
+```powershell
+python tools/verify_rewind.py --output lab/verification-rewind-new
+```
+
+本机验收的 14 项检查全部通过，包括载入战斗书签后再次通关、后退并修改输入、按住键恢复，以及分支录像的独立回放。[验证摘要](docs/rewind-validation.json)
 
 ## 重复回放验证
 
@@ -102,7 +146,7 @@ python tools/verify_replay.py --reference lab/verification-new/reference.jsonl -
 
 初始实测：3741 个外层更新帧、29 条输入事件；三次独立启动在六个检查点一致。该结论只覆盖启动到首波战斗，不代表通关。详见 [验证范围和结果](docs/validation.md)。
 
-### 完整首关样本与已知失步
+### 完整首关样本与结算修复
 
 `southport-normal` 是 Southport 普通难度战役的完整输入，包含教程弹窗、补塔和援军。录像长度 26141 个外层更新帧、199 条输入事件，包含一段查看教程时的长暂停，未优化通关速度。
 
@@ -110,7 +154,9 @@ python tools/verify_replay.py --reference lab/verification-new/reference.jsonl -
 python tools/verify_replay.py --movie examples/southport-normal.movie.json --checkpoints examples/southport-normal.checkpoints.json --require-victory --record-reference --runs 3 --output lab/verification-southport-full
 ```
 
-2026-11-13 的三次独立回放均完成 7 波，原生结算均为胜利、3 星、19 点生命。31 个检查点的匹配数量依次为 **31、30、31**：第二次回放在最终检查点多推进 1 个战斗 tick，尸体清理和动画状态随之不同。因此该轮严格验证返回失败；不能忽略终点差异来宣称全部通过。[机器可读摘要](docs/southport-normal-validation.json)
+旧版曾在三次回放中出现一次结算边界的 1 tick 差异，严格验证判为失败。加密检查发现第 26081 帧首先出现暂停状态不同。当前修复让 HUMP 计时器按注册顺序遍历固定快照，回调中新建的计时器下一轮才更新，避免在遍历期间改变哈希表造成不稳定更新顺序。游戏原有计时算术、回调和战斗逻辑保留；这是实验运行器的显式调度规则。检查点现为 **232 个**，包含第 25900–26100 帧的逐帧检查。[机器可读摘要](docs/southport-normal-validation.json)
+
+修复后三次独立回放均通过 **232/232** 检查点，均为原生胜利、3 星、19 点生命、终点战斗 tick 16290。该结论限于上述本机环境和首关样本，不代表全部关卡或所有隐藏状态。
 
 `--require-victory` 会核对游戏原生 `store.game_outcome`、所有波次结束标志和剩余生命。录像自带 `expected_outcome` 时也会自动执行这些检查，避免把“录像结束”误当成“关卡胜利”。跨回放的状态比较仍然保持严格。
 
@@ -126,9 +172,9 @@ GitHub Actions 只运行工具测试，不包含商业游戏，也不运行实�
 
 - 替换外层循环，以 `1/60` 秒调用原始更新函数，每次更新对应一次绘制。输入通过原游戏的键鼠回调执行，不直接创建塔或修改金币、伤害和敌人血量。
 - 保留原 PRNG 算法，固定虚拟时钟、Lua 和 LÖVE 的随机种子；**每次 `game.init` 前重设种子为 `246420`**。这是工具新增的实验初始条件，不是原版的默认行为。
-- 仅在启动时固定种子的早期测试曾失步；采用进关重设种子的方式后，首波样本通过重复验证。完整首关的结算边界仍存在一次 1 tick 差异，根因未确认；其他关卡和机器也尚未验证。
+- 仅在启动时固定种子的早期测试曾失步；进关重设种子和稳定计时器调度是当前明确的实验条件。其他关卡和机器尚未验证。
 - 状态比较覆盖实体可序列化组件（深度 6）、部分 store 字段、金币、生命、波次、tick、LÖVE RNG 状态，以及 Lua RNG 调用次数和累计摘要；不包含协程栈、C 层内存和所有隐藏状态。
-- 当前没有真正的即时存档、回档、完整关卡同步通过的结论、跨机器确定性保证或音视频导出。`snapshot` 是检查数据，不能恢复游戏。修改早先的输入后需要重新启动回放。
+- 回档通过重新启动和重放重建协程与随机数状态，不序列化协程栈或 C 层内存。`snapshot` 本身仍不能恢复游戏。没有即时内存存档、跨机器确定性保证或音视频导出。
 - 异步加载可能影响进关帧；样本固定坐标依赖指定的窗口与界面条件。
 - 本项目是自定义运行器的实验原型，未获得 TAS 社区认证。展示作品时应注明构建、工具版本和固定种子规则。
 

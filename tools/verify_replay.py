@@ -17,7 +17,7 @@ LAB = ROOT / "lab/kr1-test"
 
 def gameplay(state):
     return {k: v for k, v in state.items()
-            if k not in {"identity", "save_directory", "paused", "pending", "replay_done"}}
+            if k not in {"identity", "save_directory", "paused", "pending", "replay_done", "queued_inputs"}}
 
 
 def differences(a, b, path=""):
