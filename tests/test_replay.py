@@ -17,10 +17,26 @@ from movie_format import validate
 
 
 class ReplayTests(unittest.TestCase):
+    def test_movie_ending_is_not_proof_of_victory(self):
+        with self.assertRaises(ValueError):
+            verify.validate_victory({"replay_done": True, "lives": 20, "wave": 1})
+        state = {"replay_done": True, "lives": 19, "wave": 7,
+                 "store": {"waves_finished": True, "wave_group_total": 7,
+                           "game_outcome": {"victory": True, "stars": 3, "lives_left": 19}}}
+        self.assertTrue(verify.validate_victory(state, {"stars": 3})["victory"])
+        with self.assertRaises(ValueError):
+            verify.validate_victory(state, {"lives_left": 20})
+        state["store"]["waves_finished"] = False
+        with self.assertRaises(ValueError):
+            verify.validate_victory(state)
+
     def test_public_sample_matches_runtime_and_checkpoints(self):
-        movie = validate(json.loads((ROOT / "examples/southport-probe.movie.json").read_text(encoding="utf-8")))
-        self.assertEqual(movie["runtime_sha256"], hashlib.sha256((ROOT / "runtime/tas_lab.lua").read_bytes()).hexdigest())
-        self.assertEqual(len(verify.checkpoint_frames(ROOT / "examples/southport-probe.checkpoints.json", movie["end_frame"])), 6)
+        for name in ["southport-probe", "southport-normal"]:
+            with self.subTest(movie=name):
+                movie = validate(json.loads((ROOT / f"examples/{name}.movie.json").read_text(encoding="utf-8")))
+                self.assertEqual(movie["runtime_sha256"], hashlib.sha256((ROOT / "runtime/tas_lab.lua").read_bytes()).hexdigest())
+                frames = verify.checkpoint_frames(ROOT / f"examples/{name}.checkpoints.json", movie["end_frame"])
+                self.assertEqual(frames[-1], movie["end_frame"])
 
     def test_zero_advance_never_sends_step(self):
         state = {"frame": 10, "paused": True, "pending": 0}

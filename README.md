@@ -2,7 +2,7 @@
 
 Experimental frame stepping and input replay for the original **Kingdom Rush, Windows Steam edition**. Requires your own game installation; no game binaries or assets are included.
 
-初代《王国保卫战》Windows Steam 版的实验性 TAS 工具：暂停、逐帧推进、键鼠输入录制和回放，以及重复回放状态对比。当前是首关首波的同步原型，尚未验证完整关卡，也没有真正的存档／回档。
+初代《王国保卫战》Windows Steam 版的实验性 TAS 工具：暂停、逐帧推进、键鼠输入录制和回放，以及重复回放状态对比。目前已复现首关通关，但完整样本在三次严格检查中有一次出现结算边界的 1 tick 差异，尚不能标记为整关同步通过。当前没有真正的存档／回档。
 
 ## 已验证的环境
 
@@ -102,6 +102,18 @@ python tools/verify_replay.py --reference lab/verification-new/reference.jsonl -
 
 初始实测：3741 个外层更新帧、29 条输入事件；三次独立启动在六个检查点一致。该结论只覆盖启动到首波战斗，不代表通关。详见 [验证范围和结果](docs/validation.md)。
 
+### 完整首关样本与已知失步
+
+`southport-normal` 是 Southport 普通难度战役的完整输入，包含教程弹窗、补塔和援军。录像长度 26141 个外层更新帧、199 条输入事件，包含一段查看教程时的长暂停，未优化通关速度。
+
+```powershell
+python tools/verify_replay.py --movie examples/southport-normal.movie.json --checkpoints examples/southport-normal.checkpoints.json --require-victory --record-reference --runs 3 --output lab/verification-southport-full
+```
+
+2026-11-13 的三次独立回放均完成 7 波，原生结算均为胜利、3 星、19 点生命。31 个检查点的匹配数量依次为 **31、30、31**：第二次回放在最终检查点多推进 1 个战斗 tick，尸体清理和动画状态随之不同。因此该轮严格验证返回失败；不能忽略终点差异来宣称全部通过。[机器可读摘要](docs/southport-normal-validation.json)
+
+`--require-victory` 会核对游戏原生 `store.game_outcome`、所有波次结束标志和剩余生命。录像自带 `expected_outcome` 时也会自动执行这些检查，避免把“录像结束”误当成“关卡胜利”。跨回放的状态比较仍然保持严格。
+
 不启动游戏的工具测试：
 
 ```powershell
@@ -114,9 +126,9 @@ GitHub Actions 只运行工具测试，不包含商业游戏，也不运行实�
 
 - 替换外层循环，以 `1/60` 秒调用原始更新函数，每次更新对应一次绘制。输入通过原游戏的键鼠回调执行，不直接创建塔或修改金币、伤害和敌人血量。
 - 保留原 PRNG 算法，固定虚拟时钟、Lua 和 LÖVE 的随机种子；**每次 `game.init` 前重设种子为 `246420`**。这是工具新增的实验初始条件，不是原版的默认行为。
-- 仅在启动时固定种子的早期测试曾失步；采用进关重设种子的方式后，首波样本通过重复验证。这不保证其他关卡或其他机器不会失步。
+- 仅在启动时固定种子的早期测试曾失步；采用进关重设种子的方式后，首波样本通过重复验证。完整首关的结算边界仍存在一次 1 tick 差异，根因未确认；其他关卡和机器也尚未验证。
 - 状态比较覆盖实体可序列化组件（深度 6）、部分 store 字段、金币、生命、波次、tick、LÖVE RNG 状态，以及 Lua RNG 调用次数和累计摘要；不包含协程栈、C 层内存和所有隐藏状态。
-- 当前没有真正的即时存档、回档、完整关卡验证、跨机器确定性保证或音视频导出。`snapshot` 是检查数据，不能恢复游戏。修改早先的输入后需要重新启动回放。
+- 当前没有真正的即时存档、回档、完整关卡同步通过的结论、跨机器确定性保证或音视频导出。`snapshot` 是检查数据，不能恢复游戏。修改早先的输入后需要重新启动回放。
 - 异步加载可能影响进关帧；样本固定坐标依赖指定的窗口与界面条件。
 - 本项目是自定义运行器的实验原型，未获得 TAS 社区认证。展示作品时应注明构建、工具版本和固定种子规则。
 

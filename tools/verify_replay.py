@@ -61,11 +61,25 @@ def load_reference(path, metadata, frames, end):
     return states
 
 
+def validate_victory(state, expected=None):
+    store = state.get("store", {})
+    outcome = store.get("game_outcome", {})
+    if outcome.get("victory") is not True or store.get("waves_finished") is not True:
+        raise ValueError("Movie ended without a confirmed in-game victory")
+    if state.get("lives", 0) <= 0 or state.get("wave") != store.get("wave_group_total"):
+        raise ValueError("Victory requires positive lives and the final wave")
+    for key, value in (expected or {}).items():
+        if outcome.get(key) != value:
+            raise ValueError(f"Unexpected victory outcome for {key}: {outcome.get(key)!r} != {value!r}")
+    return outcome
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument("--runs", type=int, default=3)
     parser.add_argument("--movie", type=Path, default=ROOT / "examples/southport-probe.movie.json")
     parser.add_argument("--checkpoints", type=Path, default=ROOT / "examples/southport-probe.checkpoints.json")
+    parser.add_argument("--require-victory", action="store_true", help="Require the native game_outcome to confirm victory; also implied by a movie's expected_outcome")
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--record-reference", action="store_true", help="Record a fresh reference, then compare independent replays")
     mode.add_argument("--reference", type=Path, help="Compare against a previously recorded reference.jsonl")
@@ -75,11 +89,15 @@ def main(argv=None):
         parser.error("--runs must be at least 1")
     movie = args.movie.resolve()
     data = validate(json.loads(movie.read_text(encoding="utf-8")))
+    require_victory = args.require_victory or bool(data.get("expected_outcome"))
     frames = checkpoint_frames(args.checkpoints, data["end_frame"])
     metadata = {"type": "metadata", "movie_sha256": hashlib.sha256(movie.read_bytes()).hexdigest(),
                 "game_sha256": data["game_sha256"], "seed": data["seed"], "dt": data["dt"],
                 "runtime_sha256": hashlib.sha256((ROOT / "runtime/tas_lab.lua").read_bytes()).hexdigest()}
     end = {"type": "end", "completed": True, "frame": data["end_frame"], "scope": "startup and first-wave probe, not level completion"}
+    if require_victory:
+        end["scope"] = "completed level with native victory outcome"
+        metadata["require_victory"] = True
     expected = load_reference(args.reference, metadata, frames, end) if args.reference else None
     def trace(path, states):
         rows = [metadata, *[{"type": "state", **s} for s in states], end]
@@ -114,6 +132,8 @@ def main(argv=None):
                 print(json.dumps({"run": run, "frame": frame, "match": (not diff) if run else "reference", "differences": diff}), flush=True)
             if state.get("replay_done") is not True:
                 raise RuntimeError("Replay did not reach its completed ending")
+            if require_victory:
+                validate_victory(state, data.get("expected_outcome"))
         finally:
             request("quit")
         if run == 0:
@@ -123,7 +143,8 @@ def main(argv=None):
         trace(outdir / f"replay-{run}.jsonl", actual)
         comparison = compare_traces(outdir / "reference.jsonl", outdir / f"replay-{run}.jsonl")
         report.append({"run": run, "profile": info["profile"], "match": comparison["match"],
-                       "checkpoint_count": len(actual), "replay_done": state["replay_done"]})
+                       "checkpoint_count": len(actual), "replay_done": state["replay_done"],
+                       "game_outcome": state.get("store", {}).get("game_outcome")})
         (outdir / "report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     return 0 if all(r["match"] and r["replay_done"] for r in report) else 1
 

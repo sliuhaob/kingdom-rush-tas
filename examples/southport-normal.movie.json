@@ -1,0 +1,1867 @@
+{
+  "seed": 246420,
+  "clock_epoch": 1700000000,
+  "offline": true,
+  "events": [
+    {
+      "args": [
+        611,
+        584,
+        0,
+        0,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 300
+    },
+    {
+      "args": [
+        131,
+        576,
+        -480,
+        -8,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 300
+    },
+    {
+      "args": [
+        131,
+        576,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 300
+    },
+    {
+      "args": [
+        131,
+        576,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 300
+    },
+    {
+      "args": [
+        352,
+        549,
+        221,
+        -27,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 360
+    },
+    {
+      "args": [
+        352,
+        549,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 360
+    },
+    {
+      "args": [
+        352,
+        549,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 360
+    },
+    {
+      "args": [
+        511,
+        380,
+        159,
+        -169,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 660
+    },
+    {
+      "args": [
+        511,
+        380,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 660
+    },
+    {
+      "args": [
+        511,
+        380,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 660
+    },
+    {
+      "args": [
+        206,
+        576,
+        -305,
+        196,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 780
+    },
+    {
+      "args": [
+        206,
+        576,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 780
+    },
+    {
+      "args": [
+        206,
+        576,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 780
+    },
+    {
+      "args": [
+        700,
+        501,
+        494,
+        -75,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 840
+    },
+    {
+      "args": [
+        700,
+        501,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 840
+    },
+    {
+      "args": [
+        700,
+        501,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 840
+    },
+    {
+      "args": [
+        424,
+        560,
+        -276,
+        59,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 1140
+    },
+    {
+      "args": [
+        424,
+        560,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 1140
+    },
+    {
+      "args": [
+        424,
+        560,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 1140
+    },
+    {
+      "args": [
+        383,
+        389,
+        -41,
+        -171,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 1201
+    },
+    {
+      "args": [
+        383,
+        389,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 1201
+    },
+    {
+      "args": [
+        383,
+        389,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 1201
+    },
+    {
+      "args": [
+        332,
+        344,
+        -51,
+        -45,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 1221
+    },
+    {
+      "args": [
+        332,
+        344,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 1221
+    },
+    {
+      "args": [
+        332,
+        344,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 1221
+    },
+    {
+      "args": [
+        "w"
+      ],
+      "name": "textinput",
+      "frame": 1341
+    },
+    {
+      "args": [
+        934,
+        740,
+        602,
+        396,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 2541
+    },
+    {
+      "args": [
+        934,
+        740,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 2541
+    },
+    {
+      "args": [
+        934,
+        740,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 2541
+    },
+    {
+      "args": [
+        383,
+        389,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 3741
+    },
+    {
+      "args": [
+        383,
+        389,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 3741
+    },
+    {
+      "args": [
+        380,
+        485,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 3742
+    },
+    {
+      "args": [
+        380,
+        485,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 3742
+    },
+    {
+      "args": [
+        330,
+        421,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 3743
+    },
+    {
+      "args": [
+        330,
+        421,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 3743
+    },
+    {
+      "args": [
+        380,
+        485,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 3773
+    },
+    {
+      "args": [
+        380,
+        485,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 3773
+    },
+    {
+      "args": [
+        330,
+        421,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 3793
+    },
+    {
+      "args": [
+        330,
+        421,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 3793
+    },
+    {
+      "args": [
+        476,
+        484,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 3823
+    },
+    {
+      "args": [
+        476,
+        484,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 3823
+    },
+    {
+      "args": [
+        526,
+        520,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 3843
+    },
+    {
+      "args": [
+        526,
+        520,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 3843
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 3903
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 3903
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 5703
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 5703
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 6003
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 6003
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 6303
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 6303
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 6603
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 6603
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 6903
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 6903
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 7203
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 7203
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 7503
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 7503
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 7803
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 7803
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 8103
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 8103
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 8403
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 8403
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 8703
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 8703
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 9003
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 9003
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 9303
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 9303
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 9603
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 9603
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 9903
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 9903
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 10203
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 10203
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 10503
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 10503
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 10803
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 10803
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 11103
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 11103
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 11403
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 11403
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 11703
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 11703
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 12003
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 12003
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 12303
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 12303
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 12603
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 12603
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 12903
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 12903
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 13203
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 13203
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 13503
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 13503
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 13803
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 13803
+    },
+    {
+      "args": [
+        667,
+        519.95555555556,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 14103
+    },
+    {
+      "args": [
+        667,
+        519.95555555556,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 14103
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 14133
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 14133
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 14134
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 14134
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 14135
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 14135
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 14735
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 14735
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 14736
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 14736
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 15337
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 15337
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 15338
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 15338
+    },
+    {
+      "args": [
+        659,
+        500,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 15939
+    },
+    {
+      "args": [
+        659,
+        500,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 15939
+    },
+    {
+      "args": [
+        709,
+        436,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 15959
+    },
+    {
+      "args": [
+        709,
+        436,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 15959
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 16019
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 16019
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 16020
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 16020
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 16021
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 16021
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 16621
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 16621
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 16622
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 16622
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 17223
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 17223
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 17224
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 17224
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 17825
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 17825
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 17826
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 17826
+    },
+    {
+      "args": [
+        "w",
+        "w",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 18127
+    },
+    {
+      "args": [
+        "w",
+        "w"
+      ],
+      "name": "keyreleased",
+      "frame": 18127
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 18427
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 18427
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 18428
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 18428
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 19029
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 19029
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 19030
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 19030
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 19631
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 19631
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 19632
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 19632
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 20233
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 20233
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 20234
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 20234
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 20835
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 20835
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 20836
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 20836
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 21437
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 21437
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 21438
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 21438
+    },
+    {
+      "args": [
+        558,
+        609,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 21739
+    },
+    {
+      "args": [
+        558,
+        609,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 21739
+    },
+    {
+      "args": [
+        508,
+        545,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 21759
+    },
+    {
+      "args": [
+        508,
+        545,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 21759
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 22119
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 22119
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 22120
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 22120
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 22721
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 22721
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 22722
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 22722
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 23323
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 23323
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 23324
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 23324
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 23925
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 23925
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 23926
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 23926
+    },
+    {
+      "args": [
+        667,
+        519.95555555556,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 24227
+    },
+    {
+      "args": [
+        667,
+        519.95555555556,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 24227
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 24857
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 24857
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 24858
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 24858
+    },
+    {
+      "args": [
+        812,
+        578,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 25159
+    },
+    {
+      "args": [
+        812,
+        578,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 25159
+    },
+    {
+      "args": [
+        762,
+        514,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 25179
+    },
+    {
+      "args": [
+        762,
+        514,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 25179
+    },
+    {
+      "args": [
+        "2",
+        "2",
+        false
+      ],
+      "name": "keypressed",
+      "frame": 25539
+    },
+    {
+      "args": [
+        "2",
+        "2"
+      ],
+      "name": "keyreleased",
+      "frame": 25539
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 25540
+    },
+    {
+      "args": [
+        650,
+        550,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 25540
+    }
+  ],
+  "end_frame": 26141,
+  "format": "kr-tas-v1",
+  "dt": 0.016666666666667,
+  "game_sha256": "ebb4a3a9fd4fa6a30fb98e2b39fb32f0eff8630d47a3951b658339c26ce91e7b",
+  "runtime_sha256": "05a554cc2478ae9bd61cd3dace47ade511410bffb113c9aaa6d878716c356c97",
+  "seed_boundary": "game.init",
+  "initial_profile": "fresh",
+  "description": "Southport normal campaign completion probe. Native mouse/keyboard inputs, tutorial dialogs, tower purchases and reinforcements. Includes a long tutorial pause; not optimized for speed.",
+  "expected_outcome": {
+    "victory": true,
+    "level_idx": 1,
+    "level_mode": 1,
+    "level_difficulty": 2,
+    "stars": 3,
+    "lives_left": 19
+  }
+}
