@@ -1,0 +1,13 @@
+lab/
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+!.env.example
+*.log
+*.exe
+*.dll
+*.love
+*.bak
+*.tmp

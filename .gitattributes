@@ -1,0 +1,3 @@
+* text=auto eol=lf
+# Movie compatibility uses the runtime's byte-for-byte SHA-256.
+runtime/*.lua -text

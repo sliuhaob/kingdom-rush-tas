@@ -1,0 +1,312 @@
+{
+  "seed": 246420,
+  "clock_epoch": 1700000000,
+  "offline": true,
+  "events": [
+    {
+      "args": [
+        611,
+        584,
+        0,
+        0,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 300
+    },
+    {
+      "args": [
+        131,
+        576,
+        -480,
+        -8,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 300
+    },
+    {
+      "args": [
+        131,
+        576,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 300
+    },
+    {
+      "args": [
+        131,
+        576,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 300
+    },
+    {
+      "args": [
+        352,
+        549,
+        221,
+        -27,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 360
+    },
+    {
+      "args": [
+        352,
+        549,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 360
+    },
+    {
+      "args": [
+        352,
+        549,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 360
+    },
+    {
+      "args": [
+        511,
+        380,
+        159,
+        -169,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 660
+    },
+    {
+      "args": [
+        511,
+        380,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 660
+    },
+    {
+      "args": [
+        511,
+        380,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 660
+    },
+    {
+      "args": [
+        206,
+        576,
+        -305,
+        196,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 780
+    },
+    {
+      "args": [
+        206,
+        576,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 780
+    },
+    {
+      "args": [
+        206,
+        576,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 780
+    },
+    {
+      "args": [
+        700,
+        501,
+        494,
+        -75,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 840
+    },
+    {
+      "args": [
+        700,
+        501,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 840
+    },
+    {
+      "args": [
+        700,
+        501,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 840
+    },
+    {
+      "args": [
+        424,
+        560,
+        -276,
+        59,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 1140
+    },
+    {
+      "args": [
+        424,
+        560,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 1140
+    },
+    {
+      "args": [
+        424,
+        560,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 1140
+    },
+    {
+      "args": [
+        383,
+        389,
+        -41,
+        -171,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 1201
+    },
+    {
+      "args": [
+        383,
+        389,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 1201
+    },
+    {
+      "args": [
+        383,
+        389,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 1201
+    },
+    {
+      "args": [
+        332,
+        344,
+        -51,
+        -45,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 1221
+    },
+    {
+      "args": [
+        332,
+        344,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 1221
+    },
+    {
+      "args": [
+        332,
+        344,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 1221
+    },
+    {
+      "args": [
+        "w"
+      ],
+      "name": "textinput",
+      "frame": 1341
+    },
+    {
+      "args": [
+        934,
+        740,
+        602,
+        396,
+        false
+      ],
+      "name": "mousemoved",
+      "frame": 2541
+    },
+    {
+      "args": [
+        934,
+        740,
+        1,
+        false
+      ],
+      "name": "mousepressed",
+      "frame": 2541
+    },
+    {
+      "args": [
+        934,
+        740,
+        1,
+        false
+      ],
+      "name": "mousereleased",
+      "frame": 2541
+    }
+  ],
+  "end_frame": 3741,
+  "format": "kr-tas-v1",
+  "dt": 0.016666666666667,
+  "game_sha256": "ebb4a3a9fd4fa6a30fb98e2b39fb32f0eff8630d47a3951b658339c26ce91e7b",
+  "runtime_sha256": "05a554cc2478ae9bd61cd3dace47ade511410bffb113c9aaa6d878716c356c97",
+  "seed_boundary": "game.init",
+  "initial_profile": "fresh",
+  "description": "Southport normal difficulty: new profile, one archer, first wave. Synchronization probe, not a completed level."
+}
